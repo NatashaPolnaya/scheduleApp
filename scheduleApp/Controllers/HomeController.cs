@@ -37,9 +37,32 @@ namespace scheduleApp.Controllers
         public IActionResult Privacy()
         {
             return View();
-        } 
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [Route("Discipline")]
+        public IActionResult GetDisciplineList()
+        {
+            using (var db = new ScheduleDB())
+            {
+
+                var model = db.Discipline.ToList();
+                return View("Discipline", model);
+            }
+        }
+        [HttpPost]
+        public IActionResult CreateDiscipline(Discipline item)
+        {
+            using (var db = new ScheduleDB())
+            {
+
+                db.Discipline.Add(item);
+                db.SaveChanges();
+
+            }
+            return Redirect("/Discipline");
+        }
+
         public IActionResult Error()
         {
             return View();

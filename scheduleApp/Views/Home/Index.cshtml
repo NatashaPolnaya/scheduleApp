@@ -1,9 +1,21 @@
 ﻿@model List<Schedule>;
 
-@foreach(var item in Model)
-{
-<div>
-    <span>@item.Discipline.Name:</span>
-    <span>@item.TimeBegin.Name - @item.TimeEnd.Name</span>
-</div>
-}
+    <div class="mt-4 ml-5 mr-5">
+        <table class="table table-hover table-bordered mt-2">
+            <thead class="font-weight-bold text-dark">
+                <tr>
+                    <td>Дисциплина</td>
+                    <td>Время</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Discipline.Name</td>
+                        <td>@item.TimeBegin.Name - @item.TimeEnd.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
