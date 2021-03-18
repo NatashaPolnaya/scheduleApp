@@ -24,7 +24,7 @@ namespace scheduleApp.Controllers
         {
             using (var db = new ScheduleDB())
             {
-                var model = db.Schedule
+                var model = db.schedule
                                 .Include(x => x.Discipline)
                                 .Include(x => x.TimeBegin)
                                 .Include(x => x.TimeEnd)
@@ -46,17 +46,17 @@ namespace scheduleApp.Controllers
             using (var db = new ScheduleDB())
             {
 
-                var model = db.Discipline.ToList();
+                var model = db.discipline.ToList();
                 return View("Discipline", model);
             }
         }
         [HttpPost]
-        public IActionResult CreateDiscipline(Discipline item)
+        public IActionResult CreateDiscipline(discipline item)
         {
             using (var db = new ScheduleDB())
             {
 
-                db.Discipline.Add(item);
+                db.discipline.Add(item);
                 db.SaveChanges();
 
             }

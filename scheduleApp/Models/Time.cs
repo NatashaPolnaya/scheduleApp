@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace scheduleApp.Models
 {
-    public class Time
+    public class time
     {
         public int ID { get; set; }
         public string Name { get; set; }
